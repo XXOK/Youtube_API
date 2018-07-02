@@ -11,15 +11,15 @@ function search() {
     part: 'snippet',
 //    forMine: true,
 //    type: 'video'
-    maxResults: 50,
+    maxResults: 30,
   });
 
   request.execute(function(response) {
 
-    console.log(response)
-    console.log(response.items.map(function(item) {
-        return item.snippet.publishedAt;
-    }))
+    // console.log(response)
+    // console.log(response.items.map(function(item) {
+    //     return item.snippet.publishedAt;
+    // }))
 
     // 원래 있던 결과를 지우는
     $('#search-container').empty();

@@ -1,36 +1,15 @@
-<!doctype html>
-{% load static %}
-<html>
-  <head>
-    <title>Search</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-  </head>
-  <body>
-    <div id="buttons">
-      <label><input id="query" value='혁오' type="text"/><button id="search-button" disabled onclick="search()">Search</button></label>
-    </div>
-    <div id="search-container">
-    </div>
+{% extends 'base.html' %}
 
-    <!--<div id="youTubePlayer1"></div>&lt;!&ndash; 플레이어를 불러올 영역&ndash;&gt;-->
+{% block title %}
+<h2 class="subtitle">
+  <strong>검색어 입력하기</strong> | <a href="{% url 'intro:playlist' %}">좋아요 목록</a>
+</h2>
+<label>
+  <input id="query" value="Coxon Kang" type="text"/>
+  <button id="search-button" onclick="search()">Search</button>
+</label>
+{% endblock %}
 
-    <!--<div class="button is-success is-rounded">-->
-        <!--<div class="btn_play">시작</div>&lt;!&ndash; 시작버튼&ndash;&gt;-->
-    <!--</div>-->
-
-    <!--<div class="button is-danger is-rounded">-->
-        <!--<div class="btn_stop">정지</div>&lt;!&ndash; 정지버튼&ndash;&gt;-->
-    <!--</div>-->
-
-    <!--<div class="button is-warning is-rounded">-->
-        <!--<div class="btn_pause">일시정지</div> &lt;!&ndash; 일시정지버튼&ndash;&gt;-->
-    <!--</div>-->
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="{% static 'js/auth.js' %}" type="text/javascript"></script>
-    <script src="{% static 'js/search.js' %}" type="text/javascript"></script>
-    <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
-  </body>
-</html>
+{% block content %}
+<div id="search-container">
+{% endblock %}

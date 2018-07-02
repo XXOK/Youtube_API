@@ -15,7 +15,8 @@ function requestUserUploadsPlaylistId() {
     part: 'contentDetails'
   });
   request.execute(function(response) {
-    playlistId = response.result.items[0].contentDetails.relatedPlaylists.uploads;
+    playlistId = response.result.items[0].contentDetails.relatedPlaylists.likes;
+    // See https://developers.google.com/youtube/v3/docs/channels?hl=ko
     requestVideoPlaylist(playlistId);
   });
 }
@@ -57,7 +58,7 @@ function requestVideoPlaylist(playlistId, pageToken) {
 function displayResult(videoSnippet) {
   var title = videoSnippet.title;
   var videoId = videoSnippet.resourceId.videoId;
-  $('#video-container').append('<p>' + title + ' - ' + videoId + '</p>');
+  // $('#video-container').append('<p>' + title + ' - ' + videoId + '</p>');
   $('#video-container').append("<iframe width='640' height='320' src='https://www.youtube.com/embed/"+videoId+"'>");
 }
 

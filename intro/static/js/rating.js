@@ -1,20 +1,24 @@
 // Define some variables used to remember state.
-var playlistId, nextPageToken, prevPageToken;
+var nextPageToken, prevPageToken;
 
 // After the API loads, call a function to get the uploads playlist ID.
 function handleAPILoaded() {
   requestUserUploadsPlaylistId();
 }
 
-// Call the Data API to retrieve the playlist ID that uniquely identifies the
-// list of videos uploaded to the currently authenticated user's channel.
+// Create a listing for a video.
 function requestUserUploadsPlaylistId() {
-  // See https://developers.google.com/youtube/v3/docs/channels/list
   var request = gapi.client.youtube.videos.list({
     part: 'snippet',
-    myRating: 'dislike'
+    chart: 'mostPopular',
+    // myRating: 'like',
+    maxResults: 20,
   });
   request.execute(function(response) {
-    console.log(response)
+    var foo = response.items;
+    for(var i=0; i<foo.length; i++) {
+        var str = response.items[i].id;
+        $('#video-container').append("<iframe width='640' height='320' src='https://www.youtube.com/embed/"+str+"'>");
+    }
   })
 };

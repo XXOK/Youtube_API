@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "/usr/local/var/pyenv/versions/ec2_deploy/bin/python",
+    "python.linting.enabled": false
+}
